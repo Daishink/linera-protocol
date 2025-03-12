@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linera-validator
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: linera-validator
+  template:
+    metadata:
+      labels:
+        app: linera-validator
+    spec:
+      containers:
+      - name: validator
+        image: linera/validator:latest
+        ports:
+        - containerPort: 8080
+        
